@@ -2,15 +2,18 @@ import Card from "../UI/Card";
 import classes from "./ProductItem.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCartReducerActions } from "../Cart/addToCartReducer";
+import { useEffect } from "react";
 
 const ProductItem = (props) => {
   const dispatch = useDispatch();
 
   // Assuming your state structure is { addToCart: { cartItem: [...] } }
   const cartItems = useSelector((state) => state.addToCart.cartItem);
+  // const cartselector-useselector(state=>state.addToCart.cartItem)
   const AddtoCartButtonHandler = (item) => {
     dispatch(addToCartReducerActions.addToCart(item));
   };
+
   return (
     <li className={classes.item}>
       {cartItems.map((item, index) => (
