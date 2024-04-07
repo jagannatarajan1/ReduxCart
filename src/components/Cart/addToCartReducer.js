@@ -22,6 +22,11 @@ const addToCartReducer = createSlice({
     myCart: [],
   },
   reducers: {
+    fetchaddToCart: (state, action) => {
+      action.payload.forEach((items) => {
+        state.myCart.push(items);
+      });
+    },
     addToCart: (state, action) => {
       const existingItem = state.myCart.find(
         (item) => item.title === action.payload.title
